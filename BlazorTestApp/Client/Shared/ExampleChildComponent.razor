@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<div class="alert alert-info">
+	@ChildContent
+</div>
+
+<div class="alert alert-@Theme">
+	<p>@ThemeDescription</p>
+
+	@*Trying binding*@
+	<label for="themeToggler">Toggle theme:</label>
+	<input id="themeToggler" type="checkbox" @bind="@_darkThemeOn" @onclick="@ChangeDescription"/>
+</div>
+
+<div>
+	<p>Hello, I am a parameter passed from parent component:
+		<strong>
+			@ParentParam
+		</strong>
+	</p>
+</div>
+
+@code
+{
+	protected static bool _darkThemeOn;
+
+	private static string Theme => _darkThemeOn ? "dark" : "light";
+
+	public string ThemeDescription { get; set; }
+
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
+
+	[Parameter]
+	public string ParentParam { get; set; }
+
+	public void ChangeDescription()
+	{
+		_darkThemeOn = !_darkThemeOn;
+		Console.WriteLine(ThemeDescription);
+		ThemeDescription = $"The theme is {Theme}.";
+		Console.WriteLine(ThemeDescription);
+	}
+
+	//Trying methods override
+	protected override void OnInitialized()
+	{
+		_darkThemeOn = true;
+		ThemeDescription = $"The theme is {Theme}.";
+	}
+
+	//protected override void OnParametersSet()
+	//{
+	//	//Code
+	//}
+}
+	

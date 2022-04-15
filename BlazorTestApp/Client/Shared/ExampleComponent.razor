@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Components
+
+<div class="alert alert-success">
+	<p>@ExampleText</p>
+</div>
+
+<ExampleChildComponent ParentParam="Some parent param">
+	Some ChildComponent content
+</ExampleChildComponent>
+
+@code
+{
+	[Parameter]
+	public string ExampleText { get; set; }
+}
