@@ -1,12 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using Client.Services
+inject RandomService RandomService
 
 <div class="alert alert-success">
 	<p>@ExampleText</p>
 </div>
 
-<ExampleChildComponent ParentParam="Some parent param">
+<ExampleChildComponent ParentStuff="Some parent stuff">
 	Some ChildComponent content
 </ExampleChildComponent>
+
+<div>
+	<p>
+		My random ID is: @RandomService.RandomID
+	</p>
+</div>
 
 @code
 {
