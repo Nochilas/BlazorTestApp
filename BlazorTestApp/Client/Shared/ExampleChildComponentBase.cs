@@ -19,21 +19,22 @@ namespace BlazorTestApp.Client.Shared
 		public void ChangeDescription()
 		{
 			_darkThemeOn = !_darkThemeOn;
-			Console.WriteLine(ThemeDescription);
 			ThemeDescription = $"The theme is {Theme}.";
-			Console.WriteLine(ThemeDescription);
+
+			//Console.WriteLine(ThemeDescription);
+			//Console.WriteLine(this.ThemeDescription);
 		}
 
-		//Trying methods override
-		protected override void OnInitialized()
-		{
-			_darkThemeOn = true;
-			ThemeDescription = $"The theme is {Theme}.";
-		}
+        //Trying methods override
+        protected override void OnInitialized()
+        {
+            _darkThemeOn = true;
+            ThemeDescription = $"The theme is {Theme}.";
+        }
 
-		//protected override void OnParametersSet()
-		//{
-		//	//Code
-		//}
-	}
+        //protected override void OnParametersSet()
+        //{
+        //	//Code
+        //}
+    }
 }

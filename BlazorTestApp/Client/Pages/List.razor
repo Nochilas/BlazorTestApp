@@ -1,0 +1,38 @@
+﻿@page "/list"
+
+@*NOTE: This page is TERRIBLE. I created it only to try basic razor syntax*@
+
+<PageTitle>List</PageTitle>
+
+<h1>List Page</h1>
+
+<label for="flagToggler">Toggle title:</label>
+<input id="flagToggler" type="checkbox" @bind=_flag @onclick=@ToggleFlag/>
+
+@*Rendering a single component multiple times, and trying conditional rendering*@
+<ul>
+	@for(int i = 0; i < 10; i++)
+	{
+		<li>
+			
+			@if(!_flag)
+			{
+				<SurveyPrompt Title="AAAAAAA" />
+			}
+			else
+			{
+				<SurveyPrompt Title="BBBBBBB" />
+			}
+		</li>
+	}
+</ul>
+
+@code
+{
+	private bool _flag { get; set; }
+
+	private void ToggleFlag()
+	{
+		_flag = !_flag;
+	}
+}

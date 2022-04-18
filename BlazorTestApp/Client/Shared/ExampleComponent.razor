@@ -1,19 +1,31 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using Client.Services
-inject RandomService RandomService
+
+@inject RandomService RandomService
 
 <div class="alert alert-success">
-	<p>@ExampleText</p>
+	<p>This text is passed when the ExampleComponent is used in this page:
+		<strong>
+			@ExampleText
+		</strong>
+	</p>
 </div>
 
-<ExampleChildComponent ParentStuff="Some parent stuff">
-	Some ChildComponent content
-</ExampleChildComponent>
-
 <div>
-	<p>
+	<h5>
+		ExampleChildComponent begins here
+	</h5>
+	<ExampleChildComponent ParentStuff="Some parent stuff">
+		Some ChildComponent content
+	</ExampleChildComponent>
+	<h5>
+		ExampleChildComponent ends here
+	</h5>
+</div>
+
+<div class="alert alert-danger">
 		My random ID is: @RandomService.RandomID
-	</p>
+		This will change because it's Transient.
 </div>
 
 @code

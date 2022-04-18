@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using Client.Services
 
 @inherits ExampleChildComponentBase
+
+@inject RandomServiceTwo RandomServiceTwo
 
 <div class="alert alert-info">
 	@ChildContent
@@ -15,9 +18,8 @@
 </div>
 
 <div>
-	<p>Hello, I am a parameter passed from parent component:
-		<strong>
-			@ParentStuff
-		</strong>
+	<p>Hello, I am a parameter passed from parent component: <strong> @ParentStuff </strong> <br />
+		And this is RandomID of injected RandomServiceTwo: @RandomServiceTwo.RandomID.
+		This won't change because it's Scoped.
 	</p>
 </div>
