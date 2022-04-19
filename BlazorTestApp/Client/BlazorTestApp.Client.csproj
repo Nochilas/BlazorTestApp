@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\EmployeeManagementModels\EmployeeManagementModels.csproj" />
     <ProjectReference Include="..\Shared\BlazorTestApp.Shared.csproj" />
   </ItemGroup>
 
